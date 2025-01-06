@@ -7,9 +7,10 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
     topic:
-      orchestrator: orchestrator
-      product-validation-success: product-validation-success
+      product-validation-start: product-validation-success
       product-validation-failure: product-validation-failure
+      payment-success: payment-success
+      notify-ending: notify-ending
     consumer:
       group-id: product-validation-group # consumer group id, cada app vai ter o seu consumer group!
       auto-offset-reset: latest
