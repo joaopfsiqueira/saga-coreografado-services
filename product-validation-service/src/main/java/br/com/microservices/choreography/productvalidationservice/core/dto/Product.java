@@ -1,4 +1,4 @@
-package br.com.microservices.orchestrated.productvalidationservice.core.dto;
+package br.com.microservices.choreography.productvalidationservice.core.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

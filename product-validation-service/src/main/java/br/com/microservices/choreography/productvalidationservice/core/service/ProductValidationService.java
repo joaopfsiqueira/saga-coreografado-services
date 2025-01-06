@@ -1,15 +1,14 @@
-package br.com.microservices.orchestrated.productvalidationservice.core.service;
+package br.com.microservices.choreography.productvalidationservice.core.service;
 
 
-import br.com.microservices.orchestrated.productvalidationservice.core.dto.Event;
-import br.com.microservices.orchestrated.productvalidationservice.core.dto.History;
-import br.com.microservices.orchestrated.productvalidationservice.core.dto.OrderProduct;
-import br.com.microservices.orchestrated.productvalidationservice.core.enums.ESagaStatus;
-import br.com.microservices.orchestrated.productvalidationservice.core.model.Validation;
-import br.com.microservices.orchestrated.productvalidationservice.core.producer.KafkaProducer;
-import br.com.microservices.orchestrated.productvalidationservice.core.repository.ProductRepository;
-import br.com.microservices.orchestrated.productvalidationservice.core.repository.ValidationRepository;
-import br.com.microservices.orchestrated.productvalidationservice.core.utils.JsonUtil;
+import br.com.microservices.choreography.productvalidationservice.core.dto.Event;
+import br.com.microservices.choreography.productvalidationservice.core.dto.History;
+import br.com.microservices.choreography.productvalidationservice.core.dto.OrderProduct;
+import br.com.microservices.choreography.productvalidationservice.core.model.Validation;
+import br.com.microservices.choreography.productvalidationservice.core.producer.KafkaProducer;
+import br.com.microservices.choreography.productvalidationservice.core.repository.ProductRepository;
+import br.com.microservices.choreography.productvalidationservice.core.repository.ValidationRepository;
+import br.com.microservices.choreography.productvalidationservice.core.utils.JsonUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.security.oauthbearer.internals.secured.ValidateException;
@@ -17,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-import static br.com.microservices.orchestrated.productvalidationservice.core.enums.ESagaStatus.*;
+import static br.com.microservices.choreography.productvalidationservice.core.enums.ESagaStatus.*;
 import static org.springframework.util.ObjectUtils.isEmpty;
 
 @Slf4j

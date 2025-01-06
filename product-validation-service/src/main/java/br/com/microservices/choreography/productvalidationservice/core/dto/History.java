@@ -1,6 +1,6 @@
-package br.com.microservices.orchestrated.productvalidationservice.core.dto;
+package br.com.microservices.choreography.productvalidationservice.core.dto;
 
-import br.com.microservices.orchestrated.productvalidationservice.core.enums.ESagaStatus;
+import br.com.microservices.choreography.productvalidationservice.core.enums.ESagaStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

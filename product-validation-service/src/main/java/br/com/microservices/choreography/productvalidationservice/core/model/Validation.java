@@ -1,4 +1,4 @@
-package br.com.microservices.orchestrated.productvalidationservice.core.model;
+package br.com.microservices.choreography.productvalidationservice.core.model;
 
 
 import jakarta.persistence.*;
