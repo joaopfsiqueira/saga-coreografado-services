@@ -2,6 +2,7 @@ package br.com.microservices.choreography.orderservice.core.service;
 
 import br.com.microservices.choreography.orderservice.config.exception.ValidationException;
 import br.com.microservices.choreography.orderservice.core.document.Event;
+import br.com.microservices.choreography.orderservice.core.document.Order;
 import br.com.microservices.choreography.orderservice.core.dto.EventFilter;
 import br.com.microservices.choreography.orderservice.core.repository.EventRepository;
 import lombok.AllArgsConstructor;
@@ -59,5 +60,19 @@ public class EventService {
 
     public Event save(Event event) {
         return repository.save(event);
+    }
+
+    public Event createEvent(Order order) {
+        var event = Event.builder()
+                .transactionId(order.getTransactionId())
+                .orderId(order.getId())
+                .order(order)
+                .source("order-service")
+                .status("ORDER_CREATED")
+                .createdAt(LocalDateTime.now())
+                .build();
+
+        save(event);
+        return event;
     }
 }

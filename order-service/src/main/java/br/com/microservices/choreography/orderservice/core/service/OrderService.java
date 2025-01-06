@@ -1,6 +1,5 @@
 package br.com.microservices.choreography.orderservice.core.service;
 
-import br.com.microservices.choreography.orderservice.core.document.Event;
 import br.com.microservices.choreography.orderservice.core.document.Order;
 import br.com.microservices.choreography.orderservice.core.dto.OrderRequest;
 import br.com.microservices.choreography.orderservice.core.producer.SagaProducer;
@@ -12,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
+import static org.springframework.messaging.rsocket.PayloadUtils.createPayload;
 
 @Service
 @AllArgsConstructor
@@ -32,21 +33,7 @@ public class OrderService {
                 .build();
         repository.save(order);
 
-        producer.sendEvent(jsonUtil.toJson(createPayload(order)));
+        producer.sendEvent(jsonUtil.toJson(eventService.createEvent(order)));
         return order;
-    }
-
-    private Event createPayload(Order order) {
-        var event = Event.builder()
-                .transactionId(order.getTransactionId())
-                .orderId(order.getId())
-                .order(order)
-                .source("order-service")
-                .status("ORDER_CREATED")
-                .createdAt(LocalDateTime.now())
-                .build();
-
-        eventService.save(event);
-        return event;
     }
 }
