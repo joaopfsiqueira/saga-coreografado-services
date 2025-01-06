@@ -25,13 +25,25 @@ public class EventService {
     private static final String CURRENT_SOURCE = "ORDER_SERVICE";
     private final EventRepository repository;
 
-    public void  notifyEnding(Event event){
-        // resetando algumas informações para caso tenha perdido
-        event.setOrderId(event.getOrderId());
+    public void notifyEnding(Event event) {
+        event.setSource(CURRENT_SOURCE);
+        event.setOrderId(event.getOrder().getId());
         event.setCreatedAt(LocalDateTime.now());
+        setEndingHistory(event);
         save(event);
-        log.info("Order {} has been notified! TransactionId: {}", event.getOrderId(), event.getTransactionId());
+        log.info("Order {} with saga notified! TransactionId: {}", event.getOrderId(), event.getTransactionId());
     }
+
+    private void setEndingHistory(Event event) {
+        if (SUCCESS.equals(event.getStatus())) {
+            log.info("SAGA FINISHED SUCCESSFULLY FOR EVENT {}", event.getId());
+            addHistory(event, "Saga finished successfully!");
+        } else {
+            log.info("SAGA FINISHED WITH ERRORS FOR EVENT {}", event.getId());
+            addHistory(event, "Saga finished with errors!");
+        }
+    }
+
 
     public List<Event> findAll() {
         return repository.findAllByOrderByCreatedAtDesc();
