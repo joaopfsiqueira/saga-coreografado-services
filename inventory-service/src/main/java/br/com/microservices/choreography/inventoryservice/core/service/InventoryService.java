@@ -1,17 +1,17 @@
-package br.com.microservices.orchestrated.inventoryservice.core.service;
+package br.com.microservices.choreography.inventoryservice.core.service;
 
 
-import br.com.microservices.orchestrated.inventoryservice.core.dto.Event;
-import br.com.microservices.orchestrated.inventoryservice.core.dto.History;
-import br.com.microservices.orchestrated.inventoryservice.core.dto.Order;
-import br.com.microservices.orchestrated.inventoryservice.core.dto.OrderProduct;
-import br.com.microservices.orchestrated.inventoryservice.core.enums.ESagaStatus;
-import br.com.microservices.orchestrated.inventoryservice.core.model.Inventory;
-import br.com.microservices.orchestrated.inventoryservice.core.model.OrderInventory;
-import br.com.microservices.orchestrated.inventoryservice.core.producer.KafkaProducer;
-import br.com.microservices.orchestrated.inventoryservice.core.repository.InventoryRepository;
-import br.com.microservices.orchestrated.inventoryservice.core.repository.OrderInventoryRepository;
-import br.com.microservices.orchestrated.inventoryservice.core.utils.JsonUtil;
+import br.com.microservices.choreography.inventoryservice.core.dto.Event;
+import br.com.microservices.choreography.inventoryservice.core.dto.History;
+import br.com.microservices.choreography.inventoryservice.core.dto.Order;
+import br.com.microservices.choreography.inventoryservice.core.dto.OrderProduct;
+import br.com.microservices.choreography.inventoryservice.core.enums.ESagaStatus;
+import br.com.microservices.choreography.inventoryservice.core.model.Inventory;
+import br.com.microservices.choreography.inventoryservice.core.model.OrderInventory;
+import br.com.microservices.choreography.inventoryservice.core.producer.KafkaProducer;
+import br.com.microservices.choreography.inventoryservice.core.repository.InventoryRepository;
+import br.com.microservices.choreography.inventoryservice.core.repository.OrderInventoryRepository;
+import br.com.microservices.choreography.inventoryservice.core.utils.JsonUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.security.oauthbearer.internals.secured.ValidateException;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-import static br.com.microservices.orchestrated.inventoryservice.core.enums.ESagaStatus.ROLLBACK_PENDING;
+import static br.com.microservices.choreography.inventoryservice.core.enums.ESagaStatus.ROLLBACK_PENDING;
 
 @Slf4j
 @Service

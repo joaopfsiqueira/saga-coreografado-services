@@ -1,8 +1,8 @@
-package br.com.microservices.orchestrated.inventoryservice.core.dto;
+package br.com.microservices.choreography.inventoryservice.core.dto;
 
 
 
-import br.com.microservices.orchestrated.inventoryservice.core.enums.ESagaStatus;
+import br.com.microservices.choreography.inventoryservice.core.enums.ESagaStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

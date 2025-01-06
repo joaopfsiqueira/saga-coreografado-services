@@ -1,4 +1,4 @@
-package br.com.microservices.orchestrated.inventoryservice.core.producer;
+package br.com.microservices.choreography.inventoryservice.core.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

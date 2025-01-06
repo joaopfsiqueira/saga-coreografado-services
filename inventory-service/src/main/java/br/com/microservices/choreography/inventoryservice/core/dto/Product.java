@@ -1,5 +1,4 @@
-package br.com.microservices.orchestrated.inventoryservice.core.dto;
-
+package br.com.microservices.choreography.inventoryservice.core.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data // criar getters e setters
 @NoArgsConstructor // criar construtor vazio
 @AllArgsConstructor // criar construtor com todos os atributos
-public class OrderProduct {
+public class Product {
 
-    private Product product;
-    private int quantity;
+    private String code;
+    private double unitValue;
 }

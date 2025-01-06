@@ -1,6 +1,6 @@
-package br.com.microservices.orchestrated.inventoryservice.core.repository;
+package br.com.microservices.choreography.inventoryservice.core.repository;
 
-import br.com.microservices.orchestrated.inventoryservice.core.model.Inventory;
+import br.com.microservices.choreography.inventoryservice.core.model.Inventory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

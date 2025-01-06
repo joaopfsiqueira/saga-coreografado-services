@@ -1,7 +1,7 @@
-package br.com.microservices.orchestrated.inventoryservice.core.consumer;
+package br.com.microservices.choreography.inventoryservice.core.consumer;
 
-import br.com.microservices.orchestrated.inventoryservice.core.service.InventoryService;
-import br.com.microservices.orchestrated.inventoryservice.core.utils.JsonUtil;
+import br.com.microservices.choreography.inventoryservice.core.service.InventoryService;
+import br.com.microservices.choreography.inventoryservice.core.utils.JsonUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;

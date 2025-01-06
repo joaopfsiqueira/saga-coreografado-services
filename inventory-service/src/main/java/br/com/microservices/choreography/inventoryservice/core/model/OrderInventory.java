@@ -1,4 +1,4 @@
-package br.com.microservices.orchestrated.inventoryservice.core.model;
+package br.com.microservices.choreography.inventoryservice.core.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
