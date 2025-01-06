@@ -2,6 +2,7 @@ package br.com.microservices.choreography.orderservice.core.service;
 
 import br.com.microservices.choreography.orderservice.config.exception.ValidationException;
 import br.com.microservices.choreography.orderservice.core.document.Event;
+import br.com.microservices.choreography.orderservice.core.document.History;
 import br.com.microservices.choreography.orderservice.core.document.Order;
 import br.com.microservices.choreography.orderservice.core.dto.EventFilter;
 import br.com.microservices.choreography.orderservice.core.repository.EventRepository;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static br.com.microservices.choreography.orderservice.core.enums.ESagaStatus.SUCCESS;
 import static org.springframework.util.ObjectUtils.isEmpty;
 
 
@@ -20,6 +22,7 @@ import static org.springframework.util.ObjectUtils.isEmpty;
 @Slf4j
 public class EventService {
 
+    private static final String CURRENT_SOURCE = "ORDER_SERVICE";
     private final EventRepository repository;
 
     public void  notifyEnding(Event event){
@@ -63,16 +66,27 @@ public class EventService {
     }
 
     public Event createEvent(Order order) {
-        var event = Event.builder()
-                .transactionId(order.getTransactionId())
+        var event = Event
+                .builder()
+                .source(CURRENT_SOURCE)
+                .status(SUCCESS)
                 .orderId(order.getId())
+                .transactionId(order.getTransactionId())
                 .order(order)
-                .source("order-service")
-                .status("ORDER_CREATED")
                 .createdAt(LocalDateTime.now())
                 .build();
+        addHistory(event, "Saga started!");
+        return save(event);
+    }
 
-        save(event);
-        return event;
+    private void addHistory(Event event, String message) {
+        var history = History
+                .builder()
+                .source(event.getSource())
+                .status(event.getStatus())
+                .message(message)
+                .createdAt(LocalDateTime.now())
+                .build();
+        event.addToHistory(history);
     }
 }
