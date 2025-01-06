@@ -31,12 +31,15 @@ public class KafkaConfig {
     private String groupId;
     @Value("${spring.kafka.consumer.auto-offset-reset}")
     private String autoOffsetReset;
-    @Value("${spring.kafka.topic.orchestrator}")
-    private String orchestratorTopic;
-    @Value("${spring.kafka.topic.product-validation-success}")
-    private String productValidationSuccessTopic;
+    @Value("${spring.kafka.topic.product-validation-start}")
+    private String productValidationStartTopic;
     @Value("${spring.kafka.topic.product-validation-failure}")
     private String productValidationFailureTopic;
+    @Value("${spring.kafka.topic.payment-success}")
+    private String paymentSuccessTopic;
+    @Value("${spring.kafka.topic.notify-ending}")
+    private String notifyEndingTopic;
+
 
 
     @Bean // informando para o spring que esse metodo vai ser CONFIGURÁVEL, bean é um objeto insganciado.
@@ -81,18 +84,23 @@ public class KafkaConfig {
     }
 
     @Bean
-    public NewTopic orchestratorTopicTopic() {
-        return buildTopic(orchestratorTopic);
-    }
-
-    @Bean
     public NewTopic productValidationSuccessTopic() {
-        return buildTopic(productValidationSuccessTopic);
+        return buildTopic(productValidationStartTopic);
     }
 
     @Bean
     public NewTopic productValidationFailureTopic() {
         return buildTopic(productValidationFailureTopic);
+    }
+
+    @Bean
+    public NewTopic paymentSuccessTopic() {
+        return buildTopic(paymentSuccessTopic);
+    }
+
+    @Bean
+    public NewTopic notifyEndingTopic() {
+        return buildTopic(notifyEndingTopic);
     }
 
 }
