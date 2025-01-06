@@ -1,0 +1,36 @@
+server:
+  port: 8090
+
+
+spring:
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
+    topic:
+      orchestrator: orchestrator
+      product-validation-success: product-validation-success
+      product-validation-failure: product-validation-failure
+    consumer:
+      group-id: product-validation-group # consumer group id, cada app vai ter o seu consumer group!
+      auto-offset-reset: latest
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/product-db
+    username: usuario
+    password: senha
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # quando eu paro e starto a aplicação ele da um drop e cria o banco do zero! bom para test
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        use_sql_comments: true
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: OFF
