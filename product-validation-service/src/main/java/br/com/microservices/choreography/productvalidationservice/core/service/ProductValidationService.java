@@ -42,7 +42,7 @@ public class ProductValidationService {
             log.error("Error validating existing products", e);
             handleFailCurrentNotExecuted(event, e.getMessage());
         }
-        producer.sendEvent(jsonUtil.toJson(event));
+        producer.sendEvent(jsonUtil.toJson(event), "");
     }
 
     private void validateProductsInformed(Event event) {
@@ -118,7 +118,7 @@ public class ProductValidationService {
         event.setStatus(FAIL);
         event.setSource(CURRENT_SOURCE);
         addHistory(event, "Rollback executed on Product Validation Service");
-        producer.sendEvent(jsonUtil.toJson(event));
+        producer.sendEvent(jsonUtil.toJson(event), "");
     }
 
     // busca no banco de dados, se não existir insere com status de falha.

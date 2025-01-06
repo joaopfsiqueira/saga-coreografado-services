@@ -43,7 +43,7 @@ public class PaymentService {
             log.error("Error realizing payment", e);
             handleFailCurrentNotExecuted(event, e.getMessage());
         }
-        producer.sendEvent(jsonUtil.toJson(event));
+        producer.sendEvent(jsonUtil.toJson(event), "");
     }
 
     private void checkCurrentValidation(Event event) {
@@ -124,7 +124,7 @@ public class PaymentService {
         } catch (Exception e) {
             addHistory(event, "Rollback not executed for Payment!".concat(e.getMessage()));
         }
-        producer.sendEvent(jsonUtil.toJson(event));
+        producer.sendEvent(jsonUtil.toJson(event), "");
     }
 
     private void changePaymentStatusToRefound(Event event) {
