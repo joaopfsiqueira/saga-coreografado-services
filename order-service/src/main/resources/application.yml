@@ -7,7 +7,7 @@ spring:
    kafka:
       bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
       topic:
-        start-saga: start-saga
+        product-validation-start-saga: start-saga
         notify-ending: notify-ending
       consumer:
             group-id: order-group # consumer group id, cada app vai ter o seu consumer group!
