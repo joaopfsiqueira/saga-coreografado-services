@@ -6,9 +6,10 @@ spring:
     kafka:
       bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
       topic:
-        orchestrator: orchestrator
         inventory-success: inventory-success
         inventory-failure: inventory-failure
+        payment-failure: payment-failure
+        notify-ending: notify-ending
       consumer:
         group-id: payment-group # consumer group id, cada app vai ter o seu consumer group!
         auto-offset-reset: latest
