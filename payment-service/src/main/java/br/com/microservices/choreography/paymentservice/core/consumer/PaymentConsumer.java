@@ -1,7 +1,7 @@
-package br.com.microservices.orchestrated.paymentservice.core.consumer;
+package br.com.microservices.choreography.paymentservice.core.consumer;
 
-import br.com.microservices.orchestrated.paymentservice.core.service.PaymentService;
-import br.com.microservices.orchestrated.paymentservice.core.utils.JsonUtil;
+import br.com.microservices.choreography.paymentservice.core.service.PaymentService;
+import br.com.microservices.choreography.paymentservice.core.utils.JsonUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;

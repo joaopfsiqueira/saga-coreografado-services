@@ -1,6 +1,6 @@
-package br.com.microservices.orchestrated.paymentservice.core.dto;
+package br.com.microservices.choreography.paymentservice.core.dto;
 
-import br.com.microservices.orchestrated.paymentservice.core.enums.ESagaStatus;
+import br.com.microservices.choreography.paymentservice.core.enums.ESagaStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

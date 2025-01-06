@@ -1,14 +1,14 @@
-package br.com.microservices.orchestrated.paymentservice.core.service;
+package br.com.microservices.choreography.paymentservice.core.service;
 
-import br.com.microservices.orchestrated.paymentservice.core.dto.Event;
-import br.com.microservices.orchestrated.paymentservice.core.dto.History;
-import br.com.microservices.orchestrated.paymentservice.core.dto.OrderProduct;
-import br.com.microservices.orchestrated.paymentservice.core.enums.EPaymentStatus;
-import br.com.microservices.orchestrated.paymentservice.core.enums.ESagaStatus;
-import br.com.microservices.orchestrated.paymentservice.core.model.Payment;
-import br.com.microservices.orchestrated.paymentservice.core.producer.KafkaProducer;
-import br.com.microservices.orchestrated.paymentservice.core.repository.PaymentRepository;
-import br.com.microservices.orchestrated.paymentservice.core.utils.JsonUtil;
+import br.com.microservices.choreography.paymentservice.core.dto.Event;
+import br.com.microservices.choreography.paymentservice.core.dto.History;
+import br.com.microservices.choreography.paymentservice.core.dto.OrderProduct;
+import br.com.microservices.choreography.paymentservice.core.enums.EPaymentStatus;
+import br.com.microservices.choreography.paymentservice.core.enums.ESagaStatus;
+import br.com.microservices.choreography.paymentservice.core.model.Payment;
+import br.com.microservices.choreography.paymentservice.core.producer.KafkaProducer;
+import br.com.microservices.choreography.paymentservice.core.repository.PaymentRepository;
+import br.com.microservices.choreography.paymentservice.core.utils.JsonUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.security.oauthbearer.internals.secured.ValidateException;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-import static br.com.microservices.orchestrated.paymentservice.core.enums.ESagaStatus.ROLLBACK_PENDING;
+import static br.com.microservices.choreography.paymentservice.core.enums.ESagaStatus.ROLLBACK_PENDING;
 
 @Slf4j
 @Service

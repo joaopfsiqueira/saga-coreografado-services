@@ -1,6 +1,6 @@
-package br.com.microservices.orchestrated.paymentservice.core.model;
+package br.com.microservices.choreography.paymentservice.core.model;
 
-import br.com.microservices.orchestrated.paymentservice.core.enums.EPaymentStatus;
+import br.com.microservices.choreography.paymentservice.core.enums.EPaymentStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

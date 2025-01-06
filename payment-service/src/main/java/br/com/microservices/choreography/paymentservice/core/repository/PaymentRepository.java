@@ -1,6 +1,6 @@
-package br.com.microservices.orchestrated.paymentservice.core.repository;
+package br.com.microservices.choreography.paymentservice.core.repository;
 
-import br.com.microservices.orchestrated.paymentservice.core.model.Payment;
+import br.com.microservices.choreography.paymentservice.core.model.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
